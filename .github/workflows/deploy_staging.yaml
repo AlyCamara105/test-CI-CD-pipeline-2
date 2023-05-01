@@ -5,15 +5,15 @@ on:
       - master
 jobs:
   deploy:
-  name: Deploy
-  runs-on: ubuntu-latest
-  steps:
-  - name: Checkout code
-    uses: actions/checkout@v3
-  - name: Install Foreman
-    uses: Roblox/setup-foreman@v1
-    with:
-      version: "1.1.0"
-      token: ${{ secrets.GITHUB_TOKEN }}
-  - run: rojo build -o game.rbxl
-  - run: rbxcloud experience publish -f game.rbxl -p 13308777728 -u 4636763706 -t published -a ${{ secrets.API_KEY }}
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    - name: Install Foreman
+      uses: Roblox/setup-foreman@v1
+      with:
+        version: "1.1.0"
+        token: ${{ secrets.GITHUB_TOKEN }}
+    - run: rojo build -o game.rbxl
+    - run: rbxcloud experience publish -f game.rbxl -p 13308777728 -u 4636763706 -t published -a ${{ secrets.API_KEY }}
